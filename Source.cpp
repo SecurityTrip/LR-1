@@ -5,41 +5,42 @@ using namespace std;
 
 int main() {
 
-	float input_value;   // инициализация входного значения
-	string output_bin; //инициализация выводного  значения
-	string end_point;  //переменная для завершения выполнения при вводе N
+	
+	//string output_bin; //инициализация выводного  значения
 
 	while (true)
 	{
 		cout << "Translating a number from decimal to binary" << endl;
 		cout << "Input an integer: ";
+		double input_value;   // инициализация входного значения
 		cin >> input_value; // ввод значения
 
-	goBack://метка возврата проверки ввода
+	goBackToInput://метка возврата проверки ввода
 
-		if (cin.fail() /*|| (input_value - input_value/1 != 0.0)*/) // если предыдущее извлечение не выполнилось или произошло переполнение,
+		if (cin.fail() || input_value < 0 || (input_value - int(input_value) != 0.0)) // проверка ввода
 		{
-			cin.clear(); // то возвращаем cin в 'обычный' режим работы
-			cin.ignore(32767, '\n'); // и удаляем значения предыдущего ввода из входного буфера
+			cin.clear(); // возврат cin в 'обычный' режим работы
+			cin.ignore(32767, '\n'); // удаление значения предыдущего ввода из входного буфера
 			cout << "Wrong type of input data, try again" << endl;
 			
 			cout << "Input an integer: ";
 			cin >> input_value; // ввод значения
 			
-			goto goBack; //везврат к метке
+			goto goBackToInput; //везврат к метке проверки ввода
 			
 		}
 		else
 		{
+			input_value = int(input_value);
 			cout << input_value << endl;
-
 		}
 
 		cout << "Continue? (Y/N) " << endl;
+		string end_point;  //переменная для завершения выполнения при вводе N
 		cin >> end_point;
 		cout << endl;
 
-	tryAgain://метка возрата проверки Y/N
+	tryAgainYN://метка возрата проверки Y/N
 
 		while (end_point != "Y" and end_point != "N")//преверка ввода Y/N
 		{
@@ -49,7 +50,7 @@ int main() {
 			cout << endl;
 			if (end_point == "Y" || end_point == "N")
 			{
-				goto tryAgain;// возврат к метке
+				goto tryAgainYN;// возврат к метке проверки Y/N
 			}
 		}
 
