@@ -6,7 +6,7 @@ using namespace std;
 int main() {
 
 	
-	//string output_bin; //инициализация выводного  значения
+	
 
 	while (true)
 	{
@@ -31,8 +31,29 @@ int main() {
 		}
 		else
 		{
-			input_value = int(input_value);
-			cout << input_value << endl;
+			int processed_value;
+			processed_value = int(input_value);
+			string output_bin; //инициализация выводного  значения
+			EscapeFrom:
+			while (processed_value > 1) 
+			{
+				output_bin +=to_string(processed_value % 2);
+				processed_value = processed_value / 2;
+				if (processed_value == 1) 
+				{
+					output_bin += to_string(processed_value);
+					goto EscapeFrom;
+				}
+			}
+			cout << "Result: ";
+			for (int i = output_bin.length() - 1; i >= 0; i--)
+			{
+
+				cout << output_bin[i];
+
+			}
+			cout << endl;
+			
 		}
 
 		cout << "Continue? (Y/N) " << endl;
