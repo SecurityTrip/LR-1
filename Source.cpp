@@ -12,28 +12,28 @@ int main() {
 	{
 		cout << "Translating a number from decimal to binary" << endl;
 		cout << "Input an integer: ";
-		double input_value;   // инициализация входного значения
-		cin >> input_value; // ввод значения
+		double input_value;   // РёРЅРёС†РёР°Р»РёР·Р°С†РёСЏ РІС…РѕРґРЅРѕРіРѕ Р·РЅР°С‡РµРЅРёСЏ
+		cin >> input_value; // РІРІРѕРґ Р·РЅР°С‡РµРЅРёСЏ
 
-	goBackToInput://метка возврата проверки ввода
+	goBackToInput://РјРµС‚РєР° РІРѕР·РІСЂР°С‚Р° РїСЂРѕРІРµСЂРєРё РІРІРѕРґР°
 
-		if (cin.fail() || input_value < 0 || (input_value - int(input_value) != 0.0)) // проверка ввода
+		if (cin.fail() || input_value < 0 || (input_value - int(input_value) != 0.0)) // РїСЂРѕРІРµСЂРєР° РІРІРѕРґР°
 		{
-			cin.clear(); // возврат cin в 'обычный' режим работы
-			cin.ignore(32767, '\n'); // удаление значения предыдущего ввода из входного буфера
+			cin.clear(); // РІРѕР·РІСЂР°С‚ cin РІ 'РѕР±С‹С‡РЅС‹Р№' СЂРµР¶РёРј СЂР°Р±РѕС‚С‹
+			cin.ignore(32767, '\n'); // СѓРґР°Р»РµРЅРёРµ Р·РЅР°С‡РµРЅРёСЏ РїСЂРµРґС‹РґСѓС‰РµРіРѕ РІРІРѕРґР° РёР· РІС…РѕРґРЅРѕРіРѕ Р±СѓС„РµСЂР°
 			cout << "Wrong type of input data, try again" << endl;
 			
 			cout << "Input an integer: ";
-			cin >> input_value; // ввод значения
+			cin >> input_value; // РІРІРѕРґ Р·РЅР°С‡РµРЅРёСЏ
 			
-			goto goBackToInput; //везврат к метке проверки ввода
+			goto goBackToInput; //РІРµР·РІСЂР°С‚ Рє РјРµС‚РєРµ РїСЂРѕРІРµСЂРєРё РІРІРѕРґР°
 			
 		}
 		else
 		{
 			int processed_value;
 			processed_value = int(input_value);
-			string output_bin; //инициализация выводного  значения
+			string output_bin; //РёРЅРёС†РёР°Р»РёР·Р°С†РёСЏ РІС‹РІРѕРґРЅРѕРіРѕ  Р·РЅР°С‡РµРЅРёСЏ
 			EscapeFrom:
 			while (processed_value > 1) 
 			{
@@ -57,13 +57,13 @@ int main() {
 		}
 
 		cout << "Continue? (Y/N) " << endl;
-		string end_point;  //переменная для завершения выполнения при вводе N
+		string end_point;  //РїРµСЂРµРјРµРЅРЅР°СЏ РґР»СЏ Р·Р°РІРµСЂС€РµРЅРёСЏ РІС‹РїРѕР»РЅРµРЅРёСЏ РїСЂРё РІРІРѕРґРµ N
 		cin >> end_point;
 		cout << endl;
 
-	tryAgainYN://метка возрата проверки Y/N
+	tryAgainYN://РјРµС‚РєР° РІРѕР·СЂР°С‚Р° РїСЂРѕРІРµСЂРєРё Y/N
 
-		while (end_point != "Y" and end_point != "N")//преверка ввода Y/N
+		while (end_point != "Y" and end_point != "N")//РїСЂРµРІРµСЂРєР° РІРІРѕРґР° Y/N
 		{
 			cout << "Unidentified operator, try again" << endl;
 			cout << "Continue? (Y/N) " << endl;
@@ -71,7 +71,7 @@ int main() {
 			cout << endl;
 			if (end_point == "Y" || end_point == "N")
 			{
-				goto tryAgainYN;// возврат к метке проверки Y/N
+				goto tryAgainYN;// РІРѕР·РІСЂР°С‚ Рє РјРµС‚РєРµ РїСЂРѕРІРµСЂРєРё Y/N
 			}
 		}
 
