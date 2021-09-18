@@ -16,7 +16,7 @@ int main() {
 		cin >> input_value; // ввод значения
 
 	goBackToInput://метка возврата проверки ввода
-		gg;
+
 		if (cin.fail() || input_value < 0 || (input_value - int(input_value) != 0.0)) // проверка ввода
 		{
 			cin.clear(); // возврат cin в 'обычный' режим работы
