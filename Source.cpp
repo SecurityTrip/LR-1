@@ -5,9 +5,6 @@ using namespace std;
 
 int main() {
 
-	
-	
-
 	while (true)
 	{
 		cout << "Translating a number from decimal to binary" << endl;
@@ -27,32 +24,36 @@ int main() {
 			cin >> input_value; // ввод значения
 			
 			goto goBackToInput; //везврат к метке проверки ввода
-			
 		}
 		else
 		{
 			int processed_value;
 			processed_value = int(input_value);
-			string output_bin; //инициализация выводного  значения
-			EscapeFrom:
-			while (processed_value > 1) 
-			{
-				output_bin +=to_string(processed_value % 2);
-				processed_value = processed_value / 2;
-				if (processed_value == 1) 
+			if (processed_value != 1) {
+				string output_bin; //инициализация выводного  значения
+			EscapeFromProcessing:
+				while (processed_value > 1)
 				{
-					output_bin += to_string(processed_value);
-					goto EscapeFrom;
+					output_bin += to_string(processed_value % 2);
+					processed_value = processed_value / 2;
+					if (processed_value == 1)
+					{
+						output_bin += to_string(processed_value);
+						goto EscapeFromProcessing;
+					}
 				}
+
+				cout << "Result: ";
+				for (int i = output_bin.length() - 1; i >= 0; i--)
+				{
+					cout << output_bin[i];
+				}
+				cout << endl;
 			}
-			cout << "Result: ";
-			for (int i = output_bin.length() - 1; i >= 0; i--)
+			else
 			{
-
-				cout << output_bin[i];
-
+				cout << "Result: " << processed_value<< endl;
 			}
-			cout << endl;
 			
 		}
 
