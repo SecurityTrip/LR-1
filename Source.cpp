@@ -76,7 +76,6 @@ int main() {
 			}
 		}
 
-
 		if (end_point == "N")
 		{
 			break;
