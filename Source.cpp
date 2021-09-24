@@ -14,7 +14,7 @@ int main() {
 
 	goBackToInput://метка возврата проверки ввода
 
-		if (cin.fail() || input_value < 0 || (input_value - int(input_value) != 0.0)) // проверка ввода
+		if (cin.fail() || (input_value - int(input_value) != 0.0)) // проверка ввода
 		{
 			cin.clear(); // возврат cin в 'обычный' режим работы
 			cin.ignore(32767, '\n'); // удаление значения предыдущего ввода из входного буфера
@@ -44,7 +44,7 @@ int main() {
 				}
 
 				cout << "Result: ";
-				for (int i = output_bin.length() - 1; i >= 0; i--)
+				for (int i = output_bin.length() - 1; i >= 0; i--) //вывод числа в двоичной системе
 				{
 					cout << output_bin[i];
 				}
