@@ -16,7 +16,7 @@ int main() {
 
 		if (cin.fail() || input_value < 0 || (input_value - int(input_value) != 0.0)) // проверка ввода
 		{
-			cin.clear(); // возврат cin в 'обычный' режим работы
+			cin.clear(); // возврат cin в обычный режим работы
 			cin.ignore(32767, '\n'); // удаление значения предыдущего ввода из входного буфера
 			cout << "Wrong type of input data, try again" << endl;
 			
@@ -62,9 +62,8 @@ int main() {
 		cin >> end_point;
 		cout << endl;
 
-	tryAgainYN://метка возрата проверки Y/N
 
-		while (end_point != "Y" and end_point != "N")//преверка ввода Y/N
+		while (end_point != "Y" and end_point != "N")//проверка ввода Y/N
 		{
 			cout << "Unidentified operator, try again" << endl;
 			cout << "Continue? (Y/N) " << endl;
@@ -72,7 +71,7 @@ int main() {
 			cout << endl;
 			if (end_point == "Y" || end_point == "N")
 			{
-				goto tryAgainYN;// возврат к метке проверки Y/N
+				break;
 			}
 		}
 
