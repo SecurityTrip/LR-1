@@ -3,6 +3,27 @@
 
 using namespace std;
 
+string sum(const string s1, const string s2) {
+	int len1 = s1.size();
+	int len2 = s2.size();
+	// Выровняем длины строк
+	string ls1 = len1 < len2 ? s1 : s2;
+	string ls2 = len1 < len2 ? s2 : s1;
+	for (int i = ls1.size(); i < ls2.size(); ++i) ls1 = '0' + ls1;
+
+	string result;
+	int carry = 0;
+	for (int i = ls2.size() - 1; i >= 0; --i) {
+		int bit1 = ls1.at(i) - '0'; // '0' => 0, '1' => 1
+		int bit2 = ls2.at(i) - '0';
+		char sum = (bit1 ^ bit2 ^ carry) + '0';
+		result = sum + result;
+		carry = (bit1 & carry) | (bit2 & carry) | (bit1 & bit2);
+	}
+	if (carry) result = '1' + result;
+	return result;
+}
+
 int main() {
 
 	while (true)
@@ -56,6 +77,36 @@ int main() {
 		}
 		else //перевод отрицательных чисел в двоичную систему счисления
 		{
+			string output_bin; //инициализация выводного  значения
+			
+			processed_value = abs(processed_value);
+			while (processed_value > 1) //перевод модуля числа в двоичную систему
+			{
+				output_bin += to_string(processed_value % 2);
+				processed_value = processed_value / 2;
+				if (processed_value == 1)
+				{
+					output_bin += to_string(processed_value);
+				}
+			}
+
+			int i = 0;
+			string output_negative;
+
+			while (i!= output_bin.length()) //инвертирование числа в двоичной системе
+			{
+				if (output_bin[i] == '0')
+				{
+					output_negative += '1';
+				}
+				else
+				{
+					output_negative += '0';
+				}
+				i++;
+			}
+			
+			cout << sum(output_negative, "1") << endl;
 
 		}
 		
